@@ -29,7 +29,7 @@ h1 {
     font-size: 30px;
 }
 
-.container {
+.container-home {
     margin-top: 50px;
     display: grid;
     grid-template-columns: 100%;
@@ -37,7 +37,7 @@ h1 {
     grid-gap: 20px;
 }
 
-.container > *{
+.container-home > *{
     border: 1px dotted black;
 }
 
