@@ -31,15 +31,35 @@ h1 {
 
 .container {
     margin-top: 50px;
-}
-
-main{
     display: grid;
     grid-template-columns: 100%;
     grid-auto-rows: minmax(300px, auto);
     grid-gap: 20px;
 }
 
-main > *{
+.container > *{
     border: 1px dotted black;
+}
+
+.container-search {
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-auto-rows: minmax(300px, auto);
+}
+
+.container-search > * {
+    border: 1px dotted black;
+}
+
+.row-movies {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.row-movies > * {
+    margin: 20px 0px;
+    border: 1px dotted;
+    min-width: 200px;
 }
