@@ -84,20 +84,24 @@ function openSearchResult(imdbID) {
                         Plot,
                         Ratings
                     } = data;
+                    var trailerURL = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=" + Title + "%20" + Released + "%20" + Type + "%20Trailer&key=AIzaSyChqp_YFZL_R5E7abUVSqz6vcQMgvTgu28";
+                    console.log(trailerURL);
+                    fetch(trailerURL)
+                        .then(function (response) {
+                            if (response.ok) {
+                                console.log(response);
+                                response.json().then(function (data) {
+                                    console.log(data.items[0].id.videoId);
+                                    player.loadVideoById(data.items[0].id.videoId);})
+                            }
+                        })
                     console.log(Ratings);
                     var movieScore = "";
                     for (let i = 0; i < Ratings.length; i++) {
                         movieScore = movieScore.concat('<li>' + Ratings[i].Source + ": " + Ratings[i].Value + '</li>');
                         console.log(movieScore);
                     };
-                    console.log(Title);
-                    console.log(Released);
-                    console.log(Type);
-                    console.log(Language);
-                    console.log(Runtime);
-                    console.log(Director);
-                    console.log(Actors);
-                    console.log(Plot);
+
                     if (Poster == "N/A") {
                         Poster = "./assets/no-poster.jpeg";
                     }
@@ -108,10 +112,13 @@ function openSearchResult(imdbID) {
                         showLength = '<li>Runtime: ' + Runtime + '</li>';
                     }
                     modalTitleEl.textContent = Title;
-                    modalBodyEl.innerHTML = '<img src="' + Poster + '" alt="Movie Poster" width="100%"> <ul id="movie-details"><li>Release Date: ' + Released + '</li><li>Type: ' + Type.charAt(0).toUpperCase() + Type.slice(1) + '</li><li>Language: ' + Language + '</li>' + showLength + '<li>Director: ' + Director + '</li><li>Starring: ' + Actors + '</li>' + movieScore + '<li><strong>Plot: </strong></li><li>' + Plot + '</li>'
+                    modalBodyEl.innerHTML = '<img src="' + Poster + '" alt="Movie Poster" width="100%"> <ul id="movie-details"><li>Release Date: ' + Released + '</li><li>Type: ' + Type.charAt(0).toUpperCase() + Type.slice(1) + '</li><li>Language: ' + Language + '</li>' + showLength + '<li>Director: ' + Director + '</li><li>Starring: ' + Actors + '</li>' + movieScore + '<li><strong>Plot: </strong></li><li>' + Plot + '</li>';
+
+
                 });
             };
         });
+
 }
 
 function getSearchInfo() {
@@ -124,3 +131,52 @@ function getSearchInfo() {
 
 getSearchInfo();
 
+// 2. This code loads the IFrame Player API code asynchronously.
+var tag = document.createElement('script');
+
+tag.src = "https://www.youtube.com/iframe_api";
+var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+// 3. This function creates an <iframe> (and YouTube player)
+//    after the API code downloads.
+var player;
+
+function onYouTubeIframeAPIReady() {
+    player = new YT.Player('player', {
+        width: 'auto',
+        videoId: '',
+        playerVars: {
+            'playsinline': 1
+        },
+        events: {
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange
+        }
+    });
+}
+
+// 4. The API will call this function when the video player is ready.
+function onPlayerReady(event) {
+    event.target.playVideo();
+}
+
+// 5. The API calls this function when the player's state changes.
+//    The function indicates that when playing a video (state=1),
+//    the player should play for six seconds and then stop.
+var done = false;
+
+function onPlayerStateChange(event) {
+    // if (event.data == YT.PlayerState.PLAYING && !done) {
+    //     setTimeout(stopVideo, 6000);
+    //     done = true;
+    // }
+}
+
+function stopVideo() {
+    player.stopVideo();
+}
+
+$('#movieModal').on('hidden.bs.modal', function () {
+    player.stopVideo();
+});
