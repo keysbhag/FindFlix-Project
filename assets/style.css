@@ -94,7 +94,7 @@ h1 {
 #movie-box > * {
     margin-top: 5px;
     border: 1px dotted black;
-    display: flex;
+    /* display: flex; */
     flex-direction: column;
 }
 .searchResult{
