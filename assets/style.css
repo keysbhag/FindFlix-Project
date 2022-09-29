@@ -8,6 +8,8 @@
     align-items: center;
     border-bottom: 1px dotted black;
     padding: 10px;
+    background-color: #2F4550;
+    color: #F4F4F9;
 }
 
 #header {
@@ -75,6 +77,10 @@ h1 {
     padding: 10px;
 }
 
+main{
+    background-color: #586F7C;
+}
+
 .row-movies {
     display: flex;
     justify-content: space-around;
@@ -88,7 +94,8 @@ h1 {
 }
 
 #movie-box {
-    margin: 60px;
+    padding-top: 60px;
+    margin: 0 60px;
 }
 
 #movie-box > * {
@@ -99,6 +106,11 @@ h1 {
 .searchResult{
     display: flex;
     flex-direction: column;
+    background-color: #B8DBD9;
+}
+
+#movie-box :hover img {
+    border: 5px solid #B8DBD9;
 }
 
 .poster{
