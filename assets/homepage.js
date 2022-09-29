@@ -12,7 +12,7 @@ function combineSearch (Title, Year, Type, Poster) {
     if (Poster == "N/A"){
         Poster = "./assets/no-poster.jpeg";
     }
-    divHTML = ('<div class="searchResult"> <ul><li><img src="' + Poster + '" alt="Movie Poster" width="200"></li><li>Title: ' + Title + '</li> <li>Year: ' + Year + '</li> <li> Type: ' + Type + '</li></ul></div>');
+    divHTML = ('<div class="searchResult"> <img src="' + Poster + '" alt="Movie Poster" width="100%"><ul><li>Title: ' + Title + '</li> <li>Year: ' + Year + '</li> <li> Type: ' + Type + '</li></ul></div>');
     return divHTML;
 };
 
@@ -27,6 +27,7 @@ function getSearchResult (keyWord){
                 response.json().then(function (data){
                     for (let i = 0; i < data.Search.length; i++) {
                         var {Title, Year, Type, imdbID, Poster} = data.Search[i];
+                        if (Type != "game"){
                         divHTML = divHTML.concat(combineSearch(Title, Year, Type, Poster));
                         console.log(Title);
                         console.log(Year);
@@ -34,6 +35,7 @@ function getSearchResult (keyWord){
                         console.log(imdbID);
                         console.log(Poster);
                         console.log(divHTML);
+                    };
                     };
                     searchResultEl.innerHTML = divHTML;
                     console.log(divHTML);
