@@ -94,9 +94,31 @@ h1 {
 #movie-box > * {
     margin-top: 5px;
     border: 1px dotted black;
-    /* display: flex; */
+}
+
+.searchResult{
+    display: flex;
     flex-direction: column;
 }
-.searchResult{
-    align-self: flex-end;
+
+.poster{
+    flex: 3;
+    flex-basis: 100%; 
 }
+
+.description{
+    flex: 1;
+}
+
+
+.carousel {
+    width: 500px;
+    height:600px;
+}
+
+.carousel-inner {
+    flex-basis: 70%;
+}
+
+
+

@@ -24,7 +24,7 @@ function combineSearch(Title, Year, Type, Poster, imdbID) {
     if (Poster == "N/A") {
         Poster = "./assets/no-poster.jpeg";
     }
-    divHTML = ('<div class="searchResult" data-toggle="modal" data-target="#movieModal" id="' + imdbID + '"> <img src="' + Poster + '" alt="Movie Poster" width="100%"><ul><li>Title: ' + Title + '</li> <li>Year: ' + Year + '</li> <li> Type: ' + Type.charAt(0).toUpperCase() + Type.slice(1) + '</li></ul></div>');
+    divHTML = ('<div class="searchResult" data-toggle="modal" data-target="#movieModal" id="' + imdbID + '"> <img src="' + Poster + '" alt="Movie Poster" width="100%" class="poster"><ul class="description" ><li>Title: ' + Title + '</li> <li>Year: ' + Year + '</li> <li> Type: ' + Type.charAt(0).toUpperCase() + Type.slice(1) + '</li></ul></div>');
     return divHTML;
 };
 
