@@ -1,4 +1,4 @@
-var searchResultEl = document.getElementById("searchResultDiv");
+var searchResultEl = document.getElementById("movie-box");
 
 console.log(searchResultEl);
 
