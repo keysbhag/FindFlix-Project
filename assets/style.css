@@ -11,14 +11,30 @@
 }
 
 #header {
-    flex: 12;
-    text-align: end;
+    flex: 1;
+    text-align: center;
     margin-right: 00px;
 }
 
 #nav-btns {
-    flex: 10;
+    flex: 1;
     text-align: end;
+}
+
+#search-bar{
+    flex:1
+}
+
+#search-button {
+    padding: 5px 10px;
+}
+
+#search-button{
+    margin-left: 10px;
+}
+
+#search-input {
+    padding: 5px
 }
 
 #nav-btns > * {
@@ -63,3 +79,13 @@ h1 {
     border: 1px dotted;
     min-width: 200px;
 }
+
+#movie-box {
+    margin: 60px;
+}
+
+#movie-box > * {
+    margin-top: 5px;
+    border: 1px dotted black;
+}
+
