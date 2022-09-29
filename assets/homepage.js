@@ -1,5 +1,6 @@
+var searchResultEl = document.getElementById("movie-box");
 
-var searchResultEl = document.getElementById("searchResultDiv");
+
 
 console.log(searchResultEl);
 
