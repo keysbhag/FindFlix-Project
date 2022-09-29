@@ -21,15 +21,13 @@
     text-align: end;
 }
 
+
 #search-bar{
     flex:1
 }
 
 #search-button {
     padding: 5px 10px;
-}
-
-#search-button{
     margin-left: 10px;
 }
 
@@ -66,6 +64,15 @@ h1 {
 
 .container-search > * {
     border: 1px dotted black;
+}
+
+#home-button {
+    padding: 10px;
+}
+
+#home-button-box {
+    flex:1;
+    padding: 10px;
 }
 
 .row-movies {
