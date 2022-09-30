@@ -14,51 +14,57 @@
 <body>
 
     
-    <header id="head-nav">
+    <header id="head-nav" class="flex items-center sm\:flex-col">
         
-        <form id="search-bar">
-            <input type="text" class="border border-dark rounded-full " id="search-input">
+        <form id="search-bar" class="flex-1">
+            <input type="text" class="border border-dark rounded-full" id="search-input">
             <button class="border border-dark rounded-full" id="search-button"> <i class="fa fa-search"></i></button>
         </form>    
         
-        <h1 id="header"> FindFlix </h1>
+        <h1 id="header" class="flex-1"> FindFlix </h1>
 
-        <nav id="nav-btns">
-            <a> Categories </a>
-            <a> Favourites </a>
-            <a> Awesome</a>
+        <nav id="nav-btns" class="flex-1">
+            <a class="btn custom-button" role="button"> Categories </a>
+            <a class="btn custom-button" role="button"> Favourites </a>
+            <a class="btn custom-button" role="button"> Awesome </a>
         </nav>
                    
     </header>
 
     <!-- JumboTron goes here -->
-    <section class="jumbotron">
-        <h1 class="display-4">Hello, world!</h1>
-        <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-        <hr class="my-4">
-        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-        <p class="lead">
-          <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-        </p>
+    <section class="jumbotron custom-jumbotron bg-fixed">
+        <h1 class="display-4"> Welcome To FindFlix </h1>
+        <p class="lead"> Your all in one stop for movie information, reviews, trailers and more!</p>
+        <p> Like your favourite films to have them stored below </p>
+
     </section>
 
     <main class="container-home"> 
 
-        <div id="your-favourites" class="flex flex-col justify-center gap-6">
-            <h2 id="favourites-head" class="text-center"> Your Favourite Movies </h2>
+        <div id="your-favourites" class="flex flex-col gap-6">
+            <h2 id="favourites-head"> Your Favourite Movies </h2>
 
                 <!--Carousel here-->
-            <div class="d-flex justify-content-center">
+            <div class="flex justify-center" id="carousel-box">
                 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                    <div class="carousel-inner d-flex">
+                    <div class="carousel-inner shadow-2xl">
                         <div class="carousel-item active">
-                            <img class="d-block w-100" src="./assets/no-poster.jpeg" alt="First slide">
+                            <div class="three-display flex justify-center gap-12">
+                                <img class="d-block" src="./assets/no-poster.jpeg" alt="Movie slide" width="35%">
+                                <img class="d-block" src="./assets/no-poster.jpeg" alt="Third slide" width="35%">
+                            </div>
                         </div>
                         <div class="carousel-item">
-                            <img class="d-block w-100" src="./assets/no-poster.jpeg" alt="Second slide">
+                            <div class="three-display flex justify-center gap-12">
+                                <img class="d-block" src="./assets/no-poster.jpeg" alt="Third slide" width="35%">
+                                <img class="d-block" src="./assets/no-poster.jpeg" alt="Third slide" width="35%">
+                            </div>
                         </div>
                         <div class="carousel-item">
-                            <img class="d-block w-100" src="./assets/no-poster.jpeg" alt="Third slide">
+                            <div class="three-display flex justify-center gap-12">
+                                <img class="d-block" src="./assets/no-poster.jpeg" alt="Third slide" width="35%">
+                                <img class="d-block" src="./assets/no-poster.jpeg" alt="Third slide" width="35%">
+                            </div>
                         </div>
                     </div>
                     <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -72,8 +78,14 @@
                 </div>
             </div>
         </div>
-
+        <div class="buffer"></div>
     </main>
+
+    <footer>
+
+
+    </footer>
+
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
