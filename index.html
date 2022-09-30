@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/reset.css">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍿</text></svg>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -14,19 +15,18 @@
 <body>
 
     
-    <header id="head-nav" class="flex items-center sm\:flex-col">
+    <header id="head-nav" class="flex items-center sm\:flex-col flex-wrap">
         
         <form id="search-bar" class="flex-1">
             <input type="text" class="border border-dark rounded-full" id="search-input">
-            <button class="border border-dark rounded-full" id="search-button"> <i class="fa fa-search"></i></button>
+            <button class="rounded-full" id="search-button"> <i class="fa fa-search"></i></button>
         </form>    
         
         <h1 id="header" class="flex-1"> FindFlix </h1>
 
         <nav id="nav-btns" class="flex-1">
-            <a class="btn custom-button" role="button"> Categories </a>
+            <a class="btn custom-button dropdown-toggle" role="button"> Categories </a>
             <a class="btn custom-button" role="button"> Favourites </a>
-            <a class="btn custom-button" role="button"> Awesome </a>
         </nav>
                    
     </header>
@@ -36,7 +36,6 @@
         <h1 class="display-4"> Welcome To FindFlix </h1>
         <p class="lead"> Your all in one stop for movie information, reviews, trailers and more!</p>
         <p> Like your favourite films to have them stored below </p>
-
     </section>
 
     <main class="container-home"> 
