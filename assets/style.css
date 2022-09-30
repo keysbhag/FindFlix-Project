@@ -3,58 +3,76 @@
 }
 
 #head-nav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     border-bottom: 1px dotted black;
     padding: 10px;
     background-color: #2F4550;
     color: #F4F4F9;
 }
 
+body{
+    background-color: #586F7C;
+}
 #header {
-    flex: 1;
     text-align: center;
     margin-right: 00px;
 }
 
 #nav-btns {
-    flex: 1;
     text-align: end;
-}
-
-
-#search-bar{
-    flex:1
 }
 
 #search-button {
     padding: 5px 10px;
     margin-left: 10px;
+    color: black;
+    background-color:#f4f4f9;
 }
 
 #search-input {
-    padding: 5px
+    padding: 5px;
+    color: black;
+    width: 250px;
 }
 
 #nav-btns > * {
     margin-right: 10px;
+    box-shadow: 2px 2px black;
+}
+
+.custom-button {
+    background-color: #586F7C;
+    border: none;
+    box-shadow: 2px 2px black;
 }
 
 h1 {
-    font-size: 30px;
+    font-size: 40px;
+}
+
+#header {
+    text-shadow: 4px 2px black;
 }
 
 .container-home {
-    margin-top: 50px;
-    display: grid;
-    grid-template-columns: 100%;
-    grid-auto-rows: minmax(300px, auto);
-    grid-gap: 20px;
+    padding-top: 20px;
+    border: 1px solid #2F4550;
+    color: #F4F4F9;
+    text-shadow: 4px 4px #2F4550 ;
 }
 
-.container-home > *{
-    border: 1px dotted black;
+.custom-jumbotron{
+    padding: 7rem 2rem;
+    background-image: linear-gradient(rgba(96, 100, 100, 0.6),rgba(89, 93, 92, 0.8)), url("./movieCollage.jpg");
+    background-size: 30%;
+    background-position: center;
+    color: #f4f4f9;
+    margin-bottom: 0px;
+    text-shadow: 4px 2px #2F4550;
+}
+
+#favourites-head {
+    font-size: 40px;
+    margin-left: 10px;
 }
 
 .container-search {
@@ -122,15 +140,19 @@ main{
     flex: 1;
 }
 
+ .carousel {
+    width: 100%;
+}
 
-.carousel {
-    width: 500px;
-    height:600px;
+.buffer{
+    padding: 40px;
 }
 
 .carousel-inner {
-    flex-basis: 70%;
+    background-color: #2F4550;
 }
+
+
 
 
 
