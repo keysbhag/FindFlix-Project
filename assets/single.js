@@ -119,26 +119,7 @@ function openSearchResult(imdbID) {
                     modalBodyEl.innerHTML = '<img src="' + Poster + '" alt="Movie Poster" width="100%"> <ul id="movie-details"><li>Release Date: ' + Released + '</li><li>Type: ' + Type.charAt(0).toUpperCase() + Type.slice(1) + '</li><li>Language: ' + Language + '</li>' + showLength + '<li>Director: ' + Director + '</li><li>Starring: ' + Actors + '</li>' + movieScore + '<li><strong>Plot: </strong></li><li>' + Plot + '</li>';
 
                     checkLike(imdbID);
-                    likeButtonEl.addEventListener('click', function (event){
-                        event.preventDefault();
-                        if (checkLike(imdbID)){
-                            for (let i = 0; i < favs.length; i++) {
-                                if (favs[i] == imdbID){
-                                    favs.splice(i, 1);
-                                    localStorage.setItem("favs", JSON.stringify(favs));
-                                    likeButtonEl.innerHTML = '<img id="notlikedIcon" src="https://cdn-icons-png.flaticon.com/512/2589/2589197.png" alt="Not Liked" width="50">'
-                                    console.log(favs);
-                                    return;
-                                }                                
-                            }
-                        }
-                        else{
-                            favs.unshift(imdbID);
-                            localStorage.setItem("favs", JSON.stringify(favs));
-                            likeButtonEl.innerHTML = '<img id="likedIcon" src="https://cdn-icons-png.flaticon.com/512/2589/2589054.png" alt="Liked" width="50">'
-                            console.log(favs);
-                        }
-                    })
+                    
                 });
             };
         });
@@ -209,10 +190,33 @@ $('#movieModal').on('hidden.bs.modal', function () {
 function checkLike(imdbID) {
     favs = JSON.parse(localStorage.getItem("favs"));
     if (favs.includes(imdbID)) {
-        likeButtonEl.innerHTML = '<img id="likedIcon" src="https://cdn-icons-png.flaticon.com/512/2589/2589054.png" alt="Liked" width="50">'
+        likeButtonEl.innerHTML = '<img class = "' + imdbID + '"id="likedIcon" src="https://cdn-icons-png.flaticon.com/512/2589/2589054.png" alt="Liked" width="50">'
         return true;
     } else {
-        likeButtonEl.innerHTML = '<img id="notlikedIcon" src="https://cdn-icons-png.flaticon.com/512/2589/2589197.png" alt="Not Liked" width="50">'
+        likeButtonEl.innerHTML = '<img class = "' + imdbID + '"id="notlikedIcon" src="https://cdn-icons-png.flaticon.com/512/2589/2589197.png" alt="Not Liked" width="50">'
         return false;
     }
 }
+
+likeButtonEl.addEventListener('click', function (event){
+    event.preventDefault();
+    var imdbID = likeButtonEl.children[0].className;
+    console.log(imdbID);
+    if (checkLike(imdbID)){
+        for (let i = 0; i < favs.length; i++) {
+            if (favs[i] == imdbID){
+                favs.splice(i, 1);
+                localStorage.setItem("favs", JSON.stringify(favs));
+                checkLike(imdbID);
+                console.log(favs);
+                return;
+            }                                
+        }
+    }
+    else{
+        favs.unshift(imdbID);
+        localStorage.setItem("favs", JSON.stringify(favs));
+        checkLike(imdbID);
+        console.log(favs);
+    }
+})
