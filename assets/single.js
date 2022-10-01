@@ -34,7 +34,7 @@ function combineSearch(Title, Year, Type, Poster, imdbID) {
     if (Poster == "N/A") {
         Poster = "./assets/no-poster.jpeg";
     }
-    divHTML = ('<div class="searchResult" data-toggle="modal" data-target="#movieModal" id="' + imdbID + '"> <img src="' + Poster + '" alt="Movie Poster" width="100%" class="poster"><ul class="description" ><li>Title: ' + Title + '</li> <li>Year: ' + Year + '</li> <li> Type: ' + Type.charAt(0).toUpperCase() + Type.slice(1) + '</li></ul></div>');
+    divHTML = ('<div class="searchResult" data-toggle="modal" data-target="#movieModal" id="' + imdbID + '"> <img src="' + Poster + '" alt="Movie Poster" width="100%" class="poster"><ul class="description" ><li><strong>' + Title + '</strong></li> <li>Year: ' + Year + '</li> <li> Type: ' + Type.charAt(0).toUpperCase() + Type.slice(1) + '</li></ul></div>');
     return divHTML;
 };
 
@@ -129,7 +129,7 @@ function openSearchResult(imdbID) {
                     console.log(Ratings);
                     var movieScore = "";
                     for (let i = 0; i < Ratings.length; i++) {
-                        movieScore = movieScore.concat('<li>' + Ratings[i].Source + ": " + Ratings[i].Value + '</li>');
+                        movieScore = movieScore.concat('<li><strong>' + Ratings[i].Source + "</strong>: " + Ratings[i].Value + '</li>');
                         console.log(movieScore);
                     };
 
@@ -138,12 +138,12 @@ function openSearchResult(imdbID) {
                     }
                     var showLength = "";
                     if (Type == "series") {
-                        showLength = '<li>Total Seasons: ' + data.totalSeasons + '</li>';
+                        showLength = '<li><strong>Total Seasons:</strong> ' + data.totalSeasons + '</li>';
                     } else {
-                        showLength = '<li>Runtime: ' + Runtime + '</li>';
+                        showLength = '<li><strong>Runtime:</strong> ' + Runtime + '</li>';
                     }
                     modalTitleEl.textContent = Title;
-                    modalBodyEl.innerHTML = '<img src="' + Poster + '" alt="Movie Poster" width="100%"> <ul id="movie-details"><li>Release Date: ' + Released + '</li><li>Type: ' + Type.charAt(0).toUpperCase() + Type.slice(1) + '</li><li>Language: ' + Language + '</li>' + showLength + '<li>Director: ' + Director + '</li><li>Starring: ' + Actors + '</li>' + movieScore + '<li><strong>Plot: </strong></li><li>' + Plot + '</li>';
+                    modalBodyEl.innerHTML = '<img src="' + Poster + '" alt="Movie Poster" width="100%"> <ul id="movie-details"><li><strong>Release Date:</strong> ' + Released + '</li><li><strong>Type:</strong> ' + Type.charAt(0).toUpperCase() + Type.slice(1) + '</li><li><strong>Language:</strong> ' + Language + '</li>' + showLength + '<li><strong>Director:</strong> ' + Director + '</li><li><strong>Starring:</strong> ' + Actors + '</li>' + movieScore + '<br><li><strong>Plot: </strong></li><li>' + Plot + '</li>';
 
                     checkLike(imdbID);
                     

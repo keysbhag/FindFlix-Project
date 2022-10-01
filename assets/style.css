@@ -1,16 +1,23 @@
 * {
-    font-family: Arial, sans-serif;
+    font-family: 'Nunito', Arial, sans-serif;
+}
+
+:root {
+    --darkBlue: #2F4550;
+    --mainBlue: #586F7C;
+    --babyBlue: #B8DBD9;
+    --mainWhite: #F4F4F9;
 }
 
 #head-nav {
     border-bottom: 1px dotted black;
     padding: 10px;
-    background-color: #2F4550;
-    color: #F4F4F9;
+    background-color: var(--darkBlue);
+    color: var(--mainWhite);
 }
 
 body{
-    background-color: #586F7C;
+    background-color: var(--mainBlue);
 }
 #header {
     text-align: center;
@@ -26,16 +33,16 @@ body{
     margin-left: 10px;
     margin-bottom: 5px;
     color: black;
-    background-color:#f4f4f9;
+    background-color: var(--mainWhite)
 }
 
 #search-button:hover{
-    box-shadow: 0px 0px 2px 2px #B8DBD9;
+    box-shadow: 0px 0px 2px 2px var(--babyBlue);
     transition: ease-in-out 0.2s;
 }
 
 #search-input:hover{
-    box-shadow: 0px 0px 2px 2px #B8DBD9;
+    box-shadow: 0px 0px 2px 2px var(--babyBlue);
     transition: ease-in-out 0.2s;
 }
 
@@ -52,7 +59,7 @@ body{
 }
 
 .custom-button {
-    background-color: #586F7C;
+    background-color: var(--mainBlue);
     border: none;
     box-shadow: 2px 2px black;
     border-radius: 999px;
@@ -60,13 +67,13 @@ body{
 }
 
 .custom-button:hover{
-    background-color: #B8DBD9;
+    background-color: var(--babyBlue);
 }
 
 #home-button:hover{
     text-decoration: none;
-    color: #F4F4F9;
-    background-color: #B8DBD9;
+    color: var(--mainWhite);
+    background-color: var(--babyBlue);
  } 
 
 h1 {
@@ -79,9 +86,9 @@ h1 {
 
 .container-home {
     padding-top: 20px;
-    border: 1px solid #2F4550;
-    color: #F4F4F9;
-    text-shadow: 4px 4px #2F4550 ;
+    border: 1px solid var(--darkBlue);
+    color: var(--mainWhite);
+    text-shadow: 4px 4px var(--darkBlue);
 }
 
 .custom-jumbotron{
@@ -89,9 +96,9 @@ h1 {
     background-image: linear-gradient(rgba(96, 100, 100, 0.6),rgba(89, 93, 92, 0.8)), url("./movieCollage.jpg");
     background-size: 30%;
     background-position: center;
-    color: #f4f4f9;
+    color: var(--mainWhite);
     margin-bottom: 0px;
-    text-shadow: 4px 2px #2F4550;
+    text-shadow: 4px 2px var(--darkBlue);
 }
 
 #favourites-head {
@@ -120,11 +127,11 @@ h1 {
 }
 
 main{
-    background-color: #586F7C;
+    background-color: var(--mainBlue);
 }
 
 #search-input2:hover{
-    box-shadow: 0px 0px 2px 2px #B8DBD9;
+    box-shadow: 0px 0px 2px 2px var(--babyBlue);
     transition: ease-in-out 0.2s;
 }
 
@@ -140,11 +147,11 @@ main{
     padding: 5px 10px;
     margin-left: 10px;
     color: black;
-    background-color:#f4f4f9;
+    background-color:var(--mainWhite);
 }
 
 #search-button2:hover{
-    box-shadow: 0px 0px 2px 2px #B8DBD9;
+    box-shadow: 0px 0px 2px 2px var(--babyBlue);
     transition: ease-in-out 0.2s;
 }
 .row-movies {
@@ -166,7 +173,7 @@ main{
 
 #movie-box > * {
     margin-top: 5px;
-    border: 1px dotted black;
+    border: 1px solid black;
 }
 #return-msg {
     font-size: 26px;
@@ -181,11 +188,13 @@ main{
 .searchResult{
     display: flex;
     flex-direction: column;
-    background-color: #B8DBD9;
+    gap: 5px;
+    background-color: var(--babyBlue);
+    box-shadow: 4px 4px 2px 2px var(--darkBlue);
 }
 
 #movie-box :hover img {
-    border: 5px solid #B8DBD9;
+    border: 5px solid var(--babyBlue);
 }
 
 .poster{
@@ -206,7 +215,41 @@ main{
 }
 
 .carousel-inner {
-    background-color: #2F4550;
+    background-color: var(--darkBlue);
+}
+
+.custom-modal-dialog{
+    display: flex;
+    max-width: 700px;
+}
+
+.custom-modal-head{
+    background-color: var(--darkBlue);
+    color: var(--mainWhite);
+    font-size: 26px;
+}
+
+#closeX {
+    color: var(--mainWhite);
+}
+
+.custom-modal-foot{
+    background-color: var(--darkBlue);
+    color: var(--mainWhite);
+}
+
+.custom-modal-main{
+    display: flex;
+    background-color: var(--babyBlue);
+    gap: 20px;
+}
+
+.custom-modal-main ul li {
+    margin-top: 5px;
+}
+
+strong {
+    font-weight: 700;
 }
 
 @media screen and (min-width: 540px) {
