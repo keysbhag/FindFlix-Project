@@ -5,9 +5,14 @@ searchButton.addEventListener('click', function (event) {
     event.preventDefault();
     let searchVal = searchInput.value;
 
+    if (!searchVal) {
+        return 0;
+    }
+
     window.location.replace('./single-page.html?q=' + searchVal);
 
 });
+
 var favs = JSON.parse(localStorage.getItem("favs"));
 var carouselEl = document.querySelector(".carousel-inner");
 var carouselItem = "";
@@ -31,6 +36,7 @@ var getFavs = function () {
                         var posterUrl1 = data.Poster;
                         carouselItem = carouselItem.concat('<div class="carousel-item"><div class="three-display flex justify-center gap-12"><img class="d-block" src="' + posterUrl1 + '" alt="Favourite Movie Posters" width="35%"></div></div>');
                         carouselEl.innerHTML = carouselItem;
+                        carouselEl.firstChild.classList.add("active");
                     });
             } else {
                 var resultUrl1 = "https://www.omdbapi.com/?apikey=5972139b&r=json&i=" + favs[i];

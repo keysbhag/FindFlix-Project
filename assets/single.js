@@ -4,6 +4,13 @@ var modalTitleEl = document.querySelector("#ModalLabel");
 var modalFooterEl = document.querySelector(".modal-footer");
 var likeButtonEl = document.querySelector("#liked");
 var favs = JSON.parse(localStorage.getItem("favs"));
+var numResults = document.getElementById('num-results');
+var errorMsg = document.getElementById('error-msg');
+
+let searchButton2 = document.getElementById('search-button2');
+let searchInput2 = document.getElementById('search-input2');
+
+let searchCount = 0;
 
 console.log(searchResultEl);
 
@@ -31,8 +38,21 @@ function combineSearch(Title, Year, Type, Poster, imdbID) {
     return divHTML;
 };
 
+function renderNoResults() {
+    var inputVal;
+    if (searchCount == 0){
+        let queryString = document.location.search;
+        inputVal = queryString.split('=')[1];
+    }
+    else {
+        inputVal = searchInput2.value;
+    }
+    errorMsg.innerHTML = 'There are no results for: "'+inputVal+'"';
+}
+
 function getSearchResult(keyWord) {
     var searchUrl = "https://www.omdbapi.com/?apikey=5972139b&r=json&s=" + keyWord;
+    var returnLength = 0;
     console.log(searchUrl);
     var divHTML = "";
     fetch(searchUrl)
@@ -40,6 +60,10 @@ function getSearchResult(keyWord) {
             if (response.ok) {
                 console.log(response);
                 response.json().then(function (data) {
+                    if (data.Response == "False") {
+                        numResults.innerHTML = 0;
+                        renderNoResults();
+                    }
                     for (let i = 0; i < data.Search.length; i++) {
                         var {
                             Title,
@@ -56,13 +80,16 @@ function getSearchResult(keyWord) {
                             console.log(imdbID);
                             console.log(Poster);
                             console.log(divHTML);
+                            returnLength++;
+                            searchCount++;
                         };
                     };
                     searchResultEl.innerHTML = divHTML;
+                    numResults.innerHTML = returnLength;
                     console.log(divHTML);
                     divClicker();
                 });
-            };
+            }
         });
 
 };
@@ -220,3 +247,17 @@ likeButtonEl.addEventListener('click', function (event){
         console.log(favs);
     }
 })
+
+searchButton2.addEventListener('click', function (event) {
+    event.preventDefault();
+    let newSearchVal = searchInput2.value;
+
+    errorMsg.innerHTML = ' '; 
+
+    if (!newSearchVal) {
+        return 0;
+    }
+
+    getSearchResult(newSearchVal);
+
+});
