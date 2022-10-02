@@ -39,7 +39,7 @@ function divClicker() {
 function combineSearch(Title, Year, Type, Poster, imdbID) {
     for (let i = 0; i < favs.length; i++) {
         if (imdbID == favs[i]){
-            divHTML = ('<div class="searchResult" data-toggle="modal" data-target="#movieModal" id="' + imdbID + '"> <img src="' + Poster + '" alt="Movie Poster" width="100%" class="poster"><ul class="description" ><li><strong>' + Title + '</strong></li> <li>Year: ' + Year + '</li> <li> Type: ' + Type.charAt(0).toUpperCase() + Type.slice(1) + '</li></ul><img class = "' + imdbID + '"id="phIcon" src="https://cdn-icons-png.flaticon.com/512/2589/2589054.png" alt="Liked" width="25"></div>');
+            divHTML = ('<div class="searchResult heart-card" data-toggle="modal" data-target="#movieModal" id="' + imdbID + '"> <img src="' + Poster + '" alt="Movie Poster" width="100%" class="poster"><ul class="description" ><li><strong>' + Title + '</strong></li> <li>Year: ' + Year + '</li> <li> Type: ' + Type.charAt(0).toUpperCase() + Type.slice(1) + '</li></ul><img class = "' + imdbID + ' heart-ph"id="phIcon" src="https://cdn-icons-png.flaticon.com/512/2589/2589054.png" alt="Liked" width="25"></div>');
             return divHTML;
         }
     }
