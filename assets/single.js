@@ -151,7 +151,7 @@ function openSearchResult(imdbID) {
             };
         });
 
-}
+};
 
 function getSearchInfo() {
 
@@ -223,7 +223,7 @@ function checkLike(imdbID) {
         likeButtonEl.innerHTML = '<img class = "' + imdbID + '"id="notlikedIcon" src="https://cdn-icons-png.flaticon.com/512/2589/2589197.png" alt="Not Liked" width="50">'
         return false;
     }
-}
+};
 
 likeButtonEl.addEventListener('click', function (event){
     event.preventDefault();
@@ -246,7 +246,7 @@ likeButtonEl.addEventListener('click', function (event){
         checkLike(imdbID);
         console.log(favs);
     }
-})
+});
 
 searchButton2.addEventListener('click', function (event) {
     event.preventDefault();

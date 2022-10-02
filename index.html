@@ -81,6 +81,29 @@
             </div>
         </div>
         <div class="buffer"></div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="movieModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog custom-modal-dialog" role="document">
+                <div class="modal-content custom-modal-content">
+                    <div class="modal-header custom-modal-head">
+                        <h3 class="modal-title" id="ModalLabel"></h3>
+                        <button id="closeX" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body custom-modal-main">
+                        ...
+                    </div>
+                    <div id="player"></div>
+                    <div class="modal-footer custom-modal-foot d-flex justify-content-between">
+                        <button type="button" id="liked"></button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 
     <footer>
