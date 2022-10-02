@@ -297,6 +297,7 @@ strong {
 
 }
 
-
-
-
+.modal{
+text-shadow: none;
+color: #2F4550;
+}
