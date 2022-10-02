@@ -39,7 +39,9 @@ var getFavs = function () {
                 fetch(resultUrl1).then(resp => resp.json())
                     .then(function (data) {
                         var posterUrl1 = data.Poster;
-                        carouselItem = carouselItem.concat('<div class="carousel-item"><div class="three-display flex justify-center gap-12" data-toggle="modal" data-target="#movieModal"><img class="d-block" id = "' + favs[i] + '"src="' + posterUrl1 + '" alt="Favourite Movie Posters" width="35%"></div></div>');
+
+                        carouselItem = carouselItem.concat('<div class="carousel-item"><div class="three-display flex justify-center gap-12" data-toggle="modal" data-target="#movieModal"><img class="d-block" id = "' + favs[i] + '"src="' + posterUrl1 + '" alt="Favourite Movie Posters" width="25%"></div></div>');
+
                         carouselEl.innerHTML = carouselItem;
                         carouselEl.firstChild.classList.add("active");
                     });
@@ -54,7 +56,9 @@ var getFavs = function () {
                     .then(function (data) {
                         var posterUrl1 = data[0].Poster;
                         var posterUrl2 = data[1].Poster;
-                        carouselItem = carouselItem.concat('<div class="carousel-item"><div class="three-display flex justify-center gap-12" data-toggle="modal" data-target="#movieModal"><img class="d-block" id = "' + favs[i] + '" src="' + posterUrl1 + '" alt="Favourite Movie Posters" width="35%"><img class="d-block" id = "' + favs[i + 1] + '" src="' + posterUrl2 + '" alt="Favourite Movie Posters" width="35%"></div></div>');
+                       
+                        carouselItem = carouselItem.concat('<div class="carousel-item"><div class="three-display flex justify-center gap-12" data-toggle="modal" data-target="#movieModal"><img class="d-block" id = "' + favs[i] + '" src="' + posterUrl1 + '" alt="Favourite Movie Posters" width="25%"><img class="d-block" id = "' + favs[i + 1] + '" src="' + posterUrl2 + '" alt="Favourite Movie Posters" width="25%"></div></div>');
+
                         carouselEl.innerHTML = carouselItem;
                         carouselEl.firstChild.classList.add("active");
                     });

@@ -106,6 +106,28 @@ h1 {
     margin-left: 10px;
 }
 
+.placehold-card {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+  
+.top-left {
+    position: absolute;
+    top: 8px;
+    left: 408px;
+    font-size: 20px;
+    background-color: var(--darkBlue);
+}
+
+.top-right {
+    position: absolute;
+    top: 8px;
+    right: 408px;
+    font-size: 20px;
+    background-color: var(--darkBlue);
+}
+
 .container-search {
     margin-top: 50px;
     display: grid;
@@ -193,13 +215,24 @@ main{
     box-shadow: 4px 4px 2px 2px var(--darkBlue);
 }
 
-#movie-box :hover img {
+#movie-box :hover .poster {
     border: 5px solid var(--babyBlue);
 }
 
 .poster{
     flex: 3;
     flex-basis: 100%; 
+}
+
+.heart-card {
+    position: relative;
+    text-align: center;
+}
+  
+.heart-ph {
+    position: absolute;
+    top: 8px;
+    left: 16px;
 }
 
 .description{
@@ -246,6 +279,10 @@ main{
 
 .custom-modal-main ul li {
     margin-top: 5px;
+}
+
+#phIcon {
+    margin: 5px;
 }
 
 strong {
