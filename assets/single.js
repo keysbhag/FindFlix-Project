@@ -10,9 +10,15 @@ var errorMsg = document.getElementById('error-msg');
 let searchButton2 = document.getElementById('search-button2');
 let searchInput2 = document.getElementById('search-input2');
 
+let queryString = document.location.search;
+var getVal = queryString.split('=')[1];
+var inputValue = getVal;
+
 let searchCount = 0;
 
 console.log(searchResultEl);
+
+getSearchResult(inputValue);
 
 function divClicker() {
     var divsEl = searchResultEl.children;
@@ -31,6 +37,13 @@ function divClicker() {
 
 
 function combineSearch(Title, Year, Type, Poster, imdbID) {
+    for (let i = 0; i < favs.length; i++) {
+        if (imdbID == favs[i]){
+            divHTML = ('<div class="searchResult" data-toggle="modal" data-target="#movieModal" id="' + imdbID + '"> <img src="' + Poster + '" alt="Movie Poster" width="100%" class="poster"><ul class="description" ><li><strong>' + Title + '</strong></li> <li>Year: ' + Year + '</li> <li> Type: ' + Type.charAt(0).toUpperCase() + Type.slice(1) + '</li></ul><img class = "' + imdbID + '"id="phIcon" src="https://cdn-icons-png.flaticon.com/512/2589/2589054.png" alt="Liked" width="25"></div>');
+            return divHTML;
+        }
+    }
+
     if (Poster == "N/A") {
         Poster = "./assets/no-poster.jpeg";
     }
@@ -39,15 +52,14 @@ function combineSearch(Title, Year, Type, Poster, imdbID) {
 };
 
 function renderNoResults() {
-    var inputVal;
     if (searchCount == 0){
         let queryString = document.location.search;
-        inputVal = queryString.split('=')[1];
+        inputValue = queryString.split('=')[1];
     }
     else {
-        inputVal = searchInput2.value;
+        inputValue = searchInput2.value;
     }
-    errorMsg.innerHTML = 'There are no results for: "'+inputVal+'"';
+    errorMsg.innerHTML = 'There are no results for: "'+inputValue+'"';
 }
 
 function getSearchResult(keyWord) {
@@ -153,16 +165,6 @@ function openSearchResult(imdbID) {
 
 }
 
-function getSearchInfo() {
-
-    let queryString = document.location.search;
-    var inputVal = queryString.split('=')[1];
-    getSearchResult(inputVal);
-
-}
-
-getSearchInfo();
-
 // 2. This code loads the IFrame Player API code asynchronously.
 var tag = document.createElement('script');
 
@@ -235,6 +237,7 @@ likeButtonEl.addEventListener('click', function (event){
                 favs.splice(i, 1);
                 localStorage.setItem("favs", JSON.stringify(favs));
                 checkLike(imdbID);
+                getSearchResult(inputValue);
                 console.log(favs);
                 return;
             }                                
@@ -244,6 +247,7 @@ likeButtonEl.addEventListener('click', function (event){
         favs.unshift(imdbID);
         localStorage.setItem("favs", JSON.stringify(favs));
         checkLike(imdbID);
+        getSearchResult(inputValue);
         console.log(favs);
     }
 })
@@ -251,6 +255,7 @@ likeButtonEl.addEventListener('click', function (event){
 searchButton2.addEventListener('click', function (event) {
     event.preventDefault();
     let newSearchVal = searchInput2.value;
+    inputValue = newSearchVal;
 
     errorMsg.innerHTML = ' '; 
 

@@ -193,7 +193,7 @@ main{
     box-shadow: 4px 4px 2px 2px var(--darkBlue);
 }
 
-#movie-box :hover img {
+#movie-box :hover .poster {
     border: 5px solid var(--babyBlue);
 }
 
@@ -246,6 +246,10 @@ main{
 
 .custom-modal-main ul li {
     margin-top: 5px;
+}
+
+#phIcon {
+    margin: 5px;
 }
 
 strong {
