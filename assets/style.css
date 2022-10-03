@@ -145,6 +145,27 @@ h1 {
     background-color: var(--darkBlue);
 }
 
+footer{
+    padding: 25px;
+    background-color: var(--darkBlue);
+}
+
+#footer-header {
+    color: var(--mainWhite);
+    font-size: 20px;
+    /* text-shadow: 4px 2px var(--darkBlue); */
+}
+
+a{
+    text-decoration: none;
+    color: var(--mainWhite);
+    /* text-shadow: 4px 2px b; */
+}
+
+a:hover{
+    text-decoration: none;
+    color: var(--mainWhite);
+}
 /* Below are the stylings for the single-page-html */
 /* Starting with the containers for each section */
 .container-search {
