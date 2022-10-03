@@ -146,18 +146,20 @@ h1 {
 }
 
 footer{
-    padding: 50px;
+    padding: 25px;
+    background-color: var(--darkBlue);
 }
 
 #footer-header {
     color: var(--mainWhite);
-    text-shadow: 4px 2px var(--darkBlue);
+    font-size: 20px;
+    /* text-shadow: 4px 2px var(--darkBlue); */
 }
 
 a{
     text-decoration: none;
     color: var(--mainWhite);
-    text-shadow: 4px 2px var(--darkBlue);
+    /* text-shadow: 4px 2px b; */
 }
 
 a:hover{
