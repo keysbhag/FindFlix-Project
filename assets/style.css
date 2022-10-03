@@ -1,7 +1,9 @@
+/* Sets all Fonts to google font ' Nunito ' */
 * {
     font-family: 'Nunito', Arial, sans-serif;
 }
 
+/* Sets variables for colour pallette */
 :root {
     --darkBlue: #2F4550;
     --mainBlue: #586F7C;
@@ -9,6 +11,16 @@
     --mainWhite: #F4F4F9;
 }
 
+/* Background colors for both page body's */
+body{
+    background-color: var(--mainBlue);
+}
+
+main{
+    background-color: var(--mainBlue);
+}
+
+/* Code below is used to style the header and nav bar */
 #head-nav {
     border-bottom: 1px dotted black;
     padding: 10px;
@@ -16,15 +28,16 @@
     color: var(--mainWhite);
 }
 
-body{
-    background-color: var(--mainBlue);
-}
 #header {
     text-align: center;
     margin-right: 00px;
 }
 
 #nav-btns {
+    text-align: end;
+}
+
+#nav-btns-search {
     text-align: end;
 }
 
@@ -58,6 +71,7 @@ body{
     box-shadow: 2px 2px black;
 }
 
+/* Styling for all buttons */
 .custom-button {
     background-color: var(--mainBlue);
     border: none;
@@ -74,8 +88,9 @@ body{
     text-decoration: none;
     color: var(--mainWhite);
     background-color: var(--babyBlue);
- } 
+} 
 
+/* Styling for h1 headers */
 h1 {
     font-size: 40px;
 }
@@ -84,6 +99,7 @@ h1 {
     text-shadow: 4px 2px black;
 }
 
+/* Styles containers for main homepage */
 .container-home {
     padding-top: 20px;
     border: 1px solid var(--darkBlue);
@@ -106,6 +122,7 @@ h1 {
     margin-left: 10px;
 }
 
+/* Used to style placehold cards when there are no populated/favourited movies yet */
 .placehold-card {
     position: relative;
     text-align: center;
@@ -128,6 +145,8 @@ h1 {
     background-color: var(--darkBlue);
 }
 
+/* Below are the stylings for the single-page-html */
+/* Starting with the containers for each section */
 .container-search {
     margin-top: 50px;
     display: grid;
@@ -139,6 +158,7 @@ h1 {
     border: 1px dotted black;
 }
 
+/* Used for navigation buttons and search bar */
 #home-button {
     padding: 10px;
 }
@@ -146,10 +166,6 @@ h1 {
 #home-button-box {
     flex:1;
     padding: 10px;
-}
-
-main{
-    background-color: var(--mainBlue);
 }
 
 #search-input2:hover{
@@ -176,6 +192,8 @@ main{
     box-shadow: 0px 0px 2px 2px var(--babyBlue);
     transition: ease-in-out 0.2s;
 }
+
+/* Styles the rows of movies that are created */
 .row-movies {
     display: flex;
     justify-content: space-around;
@@ -197,6 +215,8 @@ main{
     margin-top: 5px;
     border: 1px solid black;
 }
+
+/* Styles any return messages */
 #return-msg {
     font-size: 26px;
     margin-top: 20px;
@@ -207,6 +227,7 @@ main{
     margin-top: 20px;
 }
 
+/* Styles the divs the movie search results are stored im */
 .searchResult{
     display: flex;
     flex-direction: column;
@@ -224,6 +245,11 @@ main{
     flex-basis: 100%; 
 }
 
+.description{
+    flex: 1;
+}
+
+/* Used for putting a heart in the favourites movie search results */
 .heart-card {
     position: relative;
     text-align: center;
@@ -235,22 +261,20 @@ main{
     left: 16px;
 }
 
-.description{
-    flex: 1;
-}
-
+/* Styling of carousel */
  .carousel {
     width: 100%;
-}
-
-.buffer{
-    padding: 40px;
 }
 
 .carousel-inner {
     background-color: var(--darkBlue);
 }
 
+.buffer{
+    padding: 40px;
+}
+
+/* Styling below is focused to style the movie modals */
 .custom-modal-dialog{
     display: flex;
     max-width: 700px;
@@ -289,15 +313,20 @@ strong {
     font-weight: 700;
 }
 
-@media screen and (min-width: 540px) {
+.modal{
+text-shadow: none;
+color: #2F4550;
+}
+
+/* Used for a little added responsiveness in the navigation bars */
+@media screen and (max-width: 500px) {
 
     #search-button{
         margin-top: 10px;
     }
 
+    #nav-btns-search{
+        display: none;
+    }
 }
 
-.modal{
-text-shadow: none;
-color: #2F4550;
-}
