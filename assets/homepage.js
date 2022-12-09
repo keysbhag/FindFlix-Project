@@ -160,9 +160,9 @@ function openSearchResult(imdbID) {
         }
         modalTitleEl.textContent = Title;
         modalBodyEl.innerHTML =
-          '<div class="col-md-12"><img src="' +
+          '<div class="row"><div class="col-sm-12 col-md-5"><img src="' +
           Poster +
-          '" alt="Movie Poster" width="100%"></div> <div class="col-md-12"> <ul id="movie-details"><li><strong>Release Date:</strong> ' +
+          '" alt="Movie Poster" width="100%"></div> <div class="col-sm-12 col-md-7"> <ul id="movie-details"><li><strong>Release Date:</strong> ' +
           Released +
           "</li><li><strong>Type:</strong> " +
           Type.charAt(0).toUpperCase() +
@@ -179,7 +179,7 @@ function openSearchResult(imdbID) {
           movieScore +
           "<br><li><strong>Plot: </strong></li><li>" +
           Plot +
-          "</li></div>";
+          "</li></div></div>";
 
         // Uses the checkLike function to check if the user has liked the film or not and determines whether to display an empty heart or a red heart
         checkLike(imdbID);
